@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ECommerceAfternoon.Server.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20260831121048_auth")]
-    partial class auth
+    [Migration("20261014075106_addcarttest")]
+    partial class addcarttest
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

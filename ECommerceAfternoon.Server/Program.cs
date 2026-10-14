@@ -2,13 +2,16 @@
 using ECommerceAfternoon.Server.Data;
 using ECommerceAfternoon.Server.Entities;
 using ECommerceAfternoon.Server.Models;
+using ECommerceAfternoon.Server.Repository.Abstract;
+using ECommerceAfternoon.Server.Repository.Concrete;
 using ECommerceAfternoon.Server.Services;
+using ECommerceAfternoon.Server.Services.Abstract;
+using ECommerceAfternoon.Server.Services.Concrete;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
-
 namespace ECommerceAfternoon.Server
 {
     public class Program
@@ -91,14 +94,17 @@ namespace ECommerceAfternoon.Server
                 });
             });
 
-            builder.Services.AddAuthorization();
-
             builder.Services.AddScoped<IJwtService, JwtService>();
             builder.Services.AddScoped<IRefreshTokenService, RefreshTokenService>();
+            builder.Services.AddScoped<ICartRepository, CartRepository>();
+            builder.Services.AddScoped<ICartService, CartService>();
 
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+
+
+
 
 
             var app = builder.Build();

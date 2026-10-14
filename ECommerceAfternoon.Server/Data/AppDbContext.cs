@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ECommerceAfternoon.Server.Data
 {
+
     public class AppDbContext
     : IdentityDbContext<ApplicationUser, IdentityRole<int>, int>
     {
